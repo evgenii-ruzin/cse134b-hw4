@@ -3,6 +3,11 @@
     --tile-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
+::target-text {
+    background: linear-gradient(to right, #ff1493, #f9f871);
+    color: white;
+}
+
 skill-item {
     display: inline-block;
     background-color: #757575;

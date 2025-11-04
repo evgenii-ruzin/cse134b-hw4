@@ -3,7 +3,7 @@
     --tile-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
-main::target-text {
+::target-text {
     background: linear-gradient(to right, #ff1493, #f9f871);
     color: white;
 }
