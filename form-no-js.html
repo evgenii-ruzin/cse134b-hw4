@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>no JS form</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                * {
+                    margin: 5px;
+                }
+
+                output {
+                    display: none;
+                }
+
+                label:has(+ *:required)::after {
+                    content: '*';
+                    color: red;
+                }
+
+                #form-valid {
+                    display: none;
+                }
+
+                *:user-invalid:not(:focus) {
+                    border: 1px solid red;
+                }
+
+                *:user-invalid:not(:focus) + output {
+                    display: block;
+                    color: red;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Form</h1>
+    <form action="https://httpbin.org/post" method="POST" id="form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Name" minlength="3" maxlength="25" pattern="^[A-Za-z]+( [A-Za-z]+)?" required>
+        <output form="form" id="name-error">Invalid name</output>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <output form="form" id="email-error">Invalid email</output>
+        <label for="comments">Comments:</label>
+        <textarea id="comments" name="comments" placeholder="Comments" rows="4" cols="20"></textarea>
+        <input type="hidden" name="possible_bot" value="true">
+        <input type="submit" value="Submit">
+        <output form="form" id="form-valid">Form ready to submit :)</output>
+    </form>
+</body>
+</html>
