@@ -5,17 +5,43 @@
     <title>JS form</title>
     <script src="js/form.js"></script>
     <style>
+
+        :root {
+            --theme-text-color: #c5c8c6;
+            --theme-bg-color: #282e40;
+            --theme-button-bg: #282e40;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            font-size: 2rem;
+            width: auto;
+
+            #theme-toggle {
+                padding: 5px;
+                border: 1px solid var(--theme-text-color);
+                background-color: var(--theme-bg-color);
+            }
+        }
+
         body {
+            color: var(--theme-text-color);
+            background-color: var(--theme-bg-color);
             width: 100vw;
             height: 100vh;
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-evenly;
 
             form {
                 width: 30%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
             fieldset {
@@ -24,7 +50,17 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                border: 2px solid black;
+                border: 2px solid var(--theme-text-color);
+
+                input, textarea {
+                    color: var(--theme-text-color);
+                    background-color: var(--theme-bg-color);
+                    border: 1px solid var(--theme-text-color);
+                }
+
+                input#submit {
+                    background-color: var(--theme-button-bg);
+                }
 
                 * {
                     margin: 5px;
@@ -33,7 +69,7 @@
                 legend {
                     font-size: 2rem;
                     font-weight: bold;
-                    border: 2px solid black;
+                    border: 2px solid var(--theme-text-color);
                     margin: auto;
                 }
 
@@ -82,6 +118,10 @@
     </style>
 </head>
 <body>
+<header style="display: none;">
+    Theme toggle &rarr;&nbsp;
+    <button id="theme-toggle"></button>
+</header>
 <form action="https://httpbin.org/post" method="POST" id="form">
     <fieldset>
         <legend>Contact Form</legend>

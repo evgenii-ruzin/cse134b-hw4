@@ -1,6 +1,17 @@
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
+
+  if (!localStorage.getItem('theme')) {
+    localStorage.setItem('theme', 'light');
+  }
+
+  const root = document.documentElement;
+
+  theme_toggle(localStorage.getItem('theme'));
+
+  document.querySelector('header').style.display = 'flex';
+
   const form = document.getElementById('form');
   const nameInput = document.getElementById('name');
   const emailInput = document.getElementById('email');
@@ -14,6 +25,8 @@ function init() {
 
   const errors = document.getElementById('form_errors');
   const form_errors = [];
+
+  const theme_button = document.getElementById('theme-toggle');
 
   nameInput.addEventListener('keypress', e => {
     const pattern = /^[A-Za-z ]$/;
@@ -93,6 +106,15 @@ function init() {
     }
   })
 
+  theme_button.addEventListener('click', e => {
+    if (localStorage.getItem('theme') === 'light') {
+      theme_toggle('dark');
+    }
+    else {
+      theme_toggle('light');
+    }
+  })
+
   submitButton.addEventListener('click', (e) => {
     errors.value = JSON.stringify(form_errors);
 
@@ -111,4 +133,24 @@ function init() {
 
     form.submit();
   })
+}
+
+function theme_toggle(theme) {
+  const root = document.documentElement;
+  const theme_button = document.getElementById('theme-toggle');
+
+  if (theme === 'light') {
+    localStorage.setItem('theme', 'light');
+    root.style.setProperty('--theme-text-color', 'black');
+    root.style.setProperty('--theme-bg-color', 'white');
+    root.style.setProperty('--theme-button-bg', 'lightgrey');
+    theme_button.innerHTML = `<img src="assets/theme-icons/moon.svg" alt="moon icon">`;
+  }
+  else {
+    localStorage.setItem('theme', 'dark');
+    root.style.setProperty('--theme-text-color', '#c5c8c6');
+    root.style.setProperty('--theme-bg-color', '#282e40');
+    root.style.setProperty('--theme-button-bg', '#282e40');
+    theme_button.innerHTML = `<img src="assets/theme-icons/sun.svg" alt="sun icon">`;
+  }
 }

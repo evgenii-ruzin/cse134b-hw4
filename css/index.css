@@ -1,6 +1,8 @@
 :root {
     --tile-background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
     --tile-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    --theme-bg-color-1: #ff4a73;
+    --theme-bg-color-2: #ffa94b;
 }
 
 ::target-text {
@@ -12,7 +14,7 @@
 main {
     flex: 1 0 auto;
     padding: 0.5rem;
-    background: linear-gradient(to left top, #ff4a73, #ffa94b);
+    background: linear-gradient(to left top, var(--theme-bg-color-1), var(--theme-bg-color-2));
     font-size: 1.25rem;
 
     h2 {

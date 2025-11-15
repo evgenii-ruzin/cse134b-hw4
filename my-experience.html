@@ -7,28 +7,32 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/my-experience.css">
     <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+    <script src="js/script.js"></script>
+    <script src="js/transition.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
     </style>
 </head>
 <body>
-    <header>
-        <section id="hdr-name">
-            <p><b>Evgenii Ruzin</b></p>
-        </section>
-        <section id="hdr-nav">
-            <nav>
-                <a href="index.html">About Me</a>
-                <a id="curr-page" href="my-experience.html">My Experience</a>
-            </nav>
-        </section>
-        <section id="hdr-links">
-            <a href="https://github.com/evgenii-ruzin"><img src="assets/github-142-svgrepo-com.svg" alt="gh-logo" width="30" height="30"></a>
-            <a href="https://leetcode.com/u/user1635kS/"><img src="assets/leetcode-svgrepo-com.svg" alt="leetcode-icon" width="30" height="30"></a>
-            <a href="mailto:rouzin.evgeny@gmail.com"><img src="assets/email-svgrepo-com.svg"  alt="email-icon" width="30" height="30"></a>
-            <template id="cv-dwld-template"><a href=""><img src="assets/cv-file-interface-symbol-svgrepo-com.svg" alt="cv-icon" width="30" height="30"></a></template>
-        </section>
-    </header>
+<header>
+    <section id="theme" style="display: none;">
+
+    </section>
+    <section id="hdr-name">
+        <p><b>Evgenii Ruzin</b></p>
+    </section>
+    <section id="hdr-nav">
+        <nav>
+            <a href="index.html">About Me</a>
+            <a id="curr-page" href="my-experience.html">My Experience</a>
+        </nav>
+    </section>
+    <section id="hdr-links">
+        <a href="https://github.com/evgenii-ruzin"><div class="header-icon github-icon"></div></a>
+        <a href="https://leetcode.com/u/user1635kS/"><div class="header-icon leetcode-icon"></div></a>
+        <a href="mailto:rouzin.evgeny@gmail.com"><div class="header-icon email-icon"></div></a>
+    </section>
+</header>
 
     <main>
         <article id="experience">
